@@ -1,8 +1,14 @@
-#include"CardImageTest.h"
+#include"CardImage.h"
+#include<windows.h>
+#include <string>
 
 
-HBITMAP* CardImageTest::getCardFrontImage(char s, int r)
+
+HBITMAP* CardImageTest::getCardFrontImage(HINSTANCE hInst, char s, int r)
 {
+	const wchar_t* frontFileName;
+
+
 	//Spade
 	if (s == 's')
 	{
@@ -11,70 +17,96 @@ HBITMAP* CardImageTest::getCardFrontImage(char s, int r)
 		case 0:
 			if (cardFrontArray[0] == NULL)
 			{
-				//wchar_t* frontFileName = L"3-c.bmp";
+
+				frontFileName = L"cardImages/1-1.bmp";
+				cardFrontArray[0] = (HBITMAP)LoadImage(hInst, frontFileName,
+					IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 			}
 		case 1:
 			if (cardFrontArray[1] == NULL)
 			{
-				//wchar_t* frontFileName = L"3-c.bmp";
+				frontFileName = L"cardImages/1-2.bmp";
+				cardFrontArray[1] = (HBITMAP)LoadImage(hInst, frontFileName,
+					IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 			}
 		case 2:
 			if (cardFrontArray[2] == NULL)
 			{
-				//wchar_t* frontFileName = L"3-c.bmp";
+				frontFileName = L"cardImages/1-3.bmp";
+				cardFrontArray[2] = (HBITMAP)LoadImage(hInst, frontFileName,
+					IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 			}
 		case 3:
 			if (cardFrontArray[3] == NULL)
 			{
-				//wchar_t* frontFileName = L"3-c.bmp";
+				frontFileName = L"cardImages/1-4.bmp";
+				cardFrontArray[3] = (HBITMAP)LoadImage(hInst, frontFileName,
+					IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 			}
 		case 4:
 			if (cardFrontArray[4] == NULL)
 			{
-				//wchar_t* frontFileName = L"3-c.bmp";
+				frontFileName = L"cardImages/1-5.bmp";
+				cardFrontArray[4] = (HBITMAP)LoadImage(hInst, frontFileName,
+					IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 			}
 		case 5:
 			if (cardFrontArray[5] == NULL)
 			{
-				//wchar_t* frontFileName = L"3-c.bmp";
+				frontFileName = L"cardImages/1-6.bmp";
+				cardFrontArray[5] = (HBITMAP)LoadImage(hInst, frontFileName,
+					IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 			}
 		case 6:
 			if (cardFrontArray[6] == NULL)
 			{
-				//wchar_t* frontFileName = L"3-c.bmp";
+				frontFileName = L"cardImages/1-7.bmp";
+				cardFrontArray[6] = (HBITMAP)LoadImage(hInst, frontFileName,
+					IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 			}
 		case 7:
 			if (cardFrontArray[7] == NULL)
 			{
-				//wchar_t* frontFileName = L"3-c.bmp";
+				frontFileName = L"cardImages/1-8.bmp";
+				cardFrontArray[7] = (HBITMAP)LoadImage(hInst, frontFileName,
+					IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 			}
 		case 8:
 			if (cardFrontArray[8] == NULL)
 			{
-				//wchar_t* frontFileName = L"3-c.bmp";
+				frontFileName = L"cardImages/1-9.bmp";
+				cardFrontArray[8] = (HBITMAP)LoadImage(hInst, frontFileName,
+					IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 			}
 		case 9:
 			if (cardFrontArray[9] == NULL)
 			{
-				//wchar_t* frontFileName = L"3-c.bmp";
+				frontFileName = L"cardImages/1-a.bmp";
+				cardFrontArray[9] = (HBITMAP)LoadImage(hInst, frontFileName,
+					IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 			}
 		case 10:
 			if (cardFrontArray[10] == NULL)
 			{
-				//wchar_t* frontFileName = L"3-c.bmp";
+				frontFileName = L"cardImages/1-b.bmp";
+				cardFrontArray[10] = (HBITMAP)LoadImage(hInst, frontFileName,
+					IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 			}
 		case 11:
 			if (cardFrontArray[11] == NULL)
 			{
-				//wchar_t* frontFileName = L"3-c.bmp";
+				frontFileName = L"cardImages/1-c.bmp";
+				cardFrontArray[11] = (HBITMAP)LoadImage(hInst, frontFileName,
+					IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 			}
 		case 12:
 			if (cardFrontArray[12] == NULL)
 			{
-				//wchar_t* frontFileName = L"3-c.bmp";
+				frontFileName = L"cardImages/1-d.bmp";
+				cardFrontArray[12] = (HBITMAP)LoadImage(hInst, frontFileName,
+					IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 			}
 		}
-
 	}
 
 	//Diamond
@@ -85,7 +117,7 @@ HBITMAP* CardImageTest::getCardFrontImage(char s, int r)
 		case 0:
 			if (cardFrontArray[13] == NULL)
 			{
-				//wchar_t* frontFileName = L"3-c.bmp";
+
 			}
 		case 1:
 			if (cardFrontArray[14] == NULL)
@@ -168,7 +200,6 @@ HBITMAP* CardImageTest::getCardFrontImage(char s, int r)
 		case 10:
 		case 11:
 		case 12:
-		case 13:
 		}
 	}
 
@@ -191,14 +222,13 @@ HBITMAP* CardImageTest::getCardFrontImage(char s, int r)
 		case 10:
 		case 11:
 		case 12:
-		case 13:
 		}
 	}
 
 	else
 	{
-		cout << "ERROR - NO CARD WITH THAT SUIT" << endl;
+		//cout << "ERROR - NO CARD WITH THAT SUIT" << endl;
 	}
-
-
 }
+
+

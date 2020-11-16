@@ -1,17 +1,21 @@
 #ifndef  CARDIMAGE_H
 #define CARDIMAGE_H
 #include <windows.h>
+#include<iostream>
+#include <string>
 
 class CardImage
 {
 public:
-	HBITMAP* getCardFrontImage();
-	HBITMAP* getCardImageBack();
-	CardImage(char, int);
+	static HBITMAP* getCardFrontImage(HINSTANCE, char, int);
+	static HBITMAP* getCardImageBack(char, int);
+
 private:
-	HBITMAP* cardFront;
-	HBITMAP* cardBack;
-	char suit;
-	int rank;
+	static HBITMAP cardFrontArray[51];
+	HBITMAP cardBackArray; //single back image
+	void LoadImages(HINSTANCE hInst);
+
+	static HBITMAP cardFront;
+	HBITMAP cardBack;
 };
 #endif
