@@ -1,197 +1,204 @@
-#include "CardImage.h"
+#include"CardImageTest.h"
 
-CardImage::CardImage(char x, int y) 
+
+HBITMAP* CardImageTest::getCardFrontImage(char s, int r)
 {
-    suit = x;
-    rank = y;
-}
+	//Spade
+	if (s == 's')
+	{
+		switch (r)
+		{
+		case 0:
+			if (cardFrontArray[0] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 1:
+			if (cardFrontArray[1] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 2:
+			if (cardFrontArray[2] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 3:
+			if (cardFrontArray[3] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 4:
+			if (cardFrontArray[4] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 5:
+			if (cardFrontArray[5] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 6:
+			if (cardFrontArray[6] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 7:
+			if (cardFrontArray[7] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 8:
+			if (cardFrontArray[8] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 9:
+			if (cardFrontArray[9] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 10:
+			if (cardFrontArray[10] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 11:
+			if (cardFrontArray[11] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 12:
+			if (cardFrontArray[12] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		}
 
-CardImage::~CardImage() {}
+	}
 
-HBITMAP* CardImage::getCardFrontImage()
-{
-    if (suit == 's')
-    {
-        if (rank == 0)
-        {
+	//Diamond
+	else if (s == 'd')
+	{
+		switch (r)
+		{
+		case 0:
+			if (cardFrontArray[13] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 1:
+			if (cardFrontArray[14] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 2:
+			if (cardFrontArray[15] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 3:
+			if (cardFrontArray[16] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 4:
+			if (cardFrontArray[17] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 5:
+			if (cardFrontArray[18] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 6:
+			if (cardFrontArray[19] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 7:
+			if (cardFrontArray[20] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 8:
+			if (cardFrontArray[21] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 9:
+			if (cardFrontArray[22] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 10:
+			if (cardFrontArray[23] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 11:
+			if (cardFrontArray[24] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		case 12:
+			if (cardFrontArray[25] == NULL)
+			{
+				//wchar_t* frontFileName = L"3-c.bmp";
+			}
+		}
+	}
 
-        }
-        if (rank == 1)
-        {
+	//Clubs
+	else if (s == 'c')
+	{
+		switch (r)
+		{
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+		case 8:
+		case 9:
+		case 10:
+		case 11:
+		case 12:
+		case 13:
+		}
+	}
 
-        }if (rank == 2)
-        {
 
-        }if (rank == 3)
-        {
+	//Hearts
+	else if (s == 'h')
+	{
+		switch (r)
+		{
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+		case 8:
+		case 9:
+		case 10:
+		case 11:
+		case 12:
+		case 13:
+		}
+	}
 
-        }if (rank == 4)
-        {
+	else
+	{
+		cout << "ERROR - NO CARD WITH THAT SUIT" << endl;
+	}
 
-        }if (rank == 5)
-        {
-
-        }if (rank == 6)
-        {
-
-        }if (rank == 7)
-        {
-
-        }if (rank == 8)
-        {
-
-        }if (rank == 9)
-        {
-
-        }if (rank == 10)
-        {
-
-        }if (rank == 11)
-        {
-
-        }if (rank == 12)
-        {
-
-        }
-    }
-
-    if (suit == 'd')
-    {
-        if (rank == 0)
-        {
-
-        }
-        if (rank == 1)
-        {
-
-        }if (rank == 2)
-        {
-
-        }if (rank == 3)
-        {
-
-        }if (rank == 4)
-        {
-
-        }if (rank == 5)
-        {
-
-        }if (rank == 6)
-        {
-
-        }if (rank == 7)
-        {
-
-        }if (rank == 8)
-        {
-
-        }if (rank == 9)
-        {
-
-        }if (rank == 10)
-        {
-
-        }if (rank == 11)
-        {
-
-        }if (rank == 12)
-        {
-
-        }
-    }
-
-    if (suit == 'c')
-    {
-        if (rank == 0)
-        {
-
-        }
-        if (rank == 1)
-        {
-
-        }if (rank == 2)
-        {
-
-        }if (rank == 3)
-        {
-
-        }if (rank == 4)
-        {
-
-        }if (rank == 5)
-        {
-
-        }if (rank == 6)
-        {
-
-        }if (rank == 7)
-        {
-
-        }if (rank == 8)
-        {
-
-        }if (rank == 9)
-        {
-
-        }if (rank == 10)
-        {
-
-        }if (rank == 11)
-        {
-
-        }if (rank == 12)
-        {
-
-        }
-    }
-
-    if (suit == 'h')
-    {
-        if (rank == 0)
-        {
-
-        }
-        if (rank == 1)
-        {
-
-        }if (rank == 2)
-        {
-
-        }if (rank == 3)
-        {
-
-        }if (rank == 4)
-        {
-
-        }if (rank == 5)
-        {
-
-        }if (rank == 6)
-        {
-
-        }if (rank == 7)
-        {
-
-        }if (rank == 8)
-        {
-
-        }if (rank == 9)
-        {
-
-        }if (rank == 10)
-        {
-
-        }if (rank == 11)
-        {
-
-        }if (rank == 12)
-        {
-
-        }
-    }
-}
-
-HBITMAP* CardImage::getCardImageBack()
-{
 
 }
