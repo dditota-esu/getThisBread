@@ -21,10 +21,14 @@ int CardImage::getCardFront(HINSTANCE hInst, char s, int r)
 				frontFileName = L"cardImages/1-1.bmp";
 				cardFrontArray[0] = (HBITMAP)LoadImage(hInst, frontFileName,
 					IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+
+				return 0;
+				break;
 			}
 			else
 			{
 				return 0;
+				break;
 			}
 		case 1:
 			if (cardFrontArray[1] == NULL)
