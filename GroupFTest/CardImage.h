@@ -7,14 +7,14 @@
 class CardImage
 {
 public:
-	static HBITMAP* getCardFrontImage(HINSTANCE, char, int);
-	static HBITMAP* getCardImageBack(char, int);
+	static int getCardFront(HINSTANCE, char, int);
+	static HBITMAP* getCardBack(HINSTANCE);
+
+	static HBITMAP cardFrontArray[51];
+	HBITMAP cardBack;
 
 private:
-	static HBITMAP cardFrontArray[51];
 	HBITMAP cardBackArray; //single back image
-	void LoadImages(HINSTANCE hInst);
-
 	static HBITMAP cardFront;
 	HBITMAP cardBack;
 };

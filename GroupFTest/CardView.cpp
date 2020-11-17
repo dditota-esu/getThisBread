@@ -1,7 +1,6 @@
 #include "CardView.h"
 
-CardView::CardView() {}
-void CardView::cardViewInitial(CardImage* c)
+CardView::CardView(char suit, int rank) 
 {
 	x_LL = 0;
 	y_LL = 100;
@@ -10,11 +9,20 @@ void CardView::cardViewInitial(CardImage* c)
 	isHidden = true;
 	isFaceUp = false;
 	isSelected = false;
+
+	indexValue = getCardFront(hInst, suit, rank);	//Gets the image from the index array in CardImage
+
+	HBITMAP card = cardFrontArray[indexValue];		//Get bitmap from the array 
+
+
 }
-void CardView::cardViewDisplay(float x, float y, bool isFaceUp, bool isSelected)
+
+void CardView::cardViewDisplay(int x, int y, bool isFaceUp, bool isSelected, char suit, int rank)
 {
-	int x = x_LL + CARD_WIDTH / 2;
-	int y = y_UR + CARD_HEIGHT / 2;
+	float CARD_WIDTH = x;
+	float CARD_HEIGHT = y;
+	int Newx = x_LL + CARD_WIDTH / 2;
+	int Newy = y_UR + CARD_HEIGHT / 2;
 
 	if (isHidden) {
 		HPEN        hOldPen;
@@ -30,9 +38,9 @@ void CardView::cardViewDisplay(float x, float y, bool isFaceUp, bool isSelected)
 		HDC MemDCCard = CreateCompatibleDC(hdc);
 
 		if (isFaceUp)
-			SelectObject(MemDCCard, img.getCardFrontImage());
+			SelectObject(MemDCCard, card);
 		else
-			SelectObject(MemDCCard, img.getCardImageBack());
+			SelectObject(MemDCCard, img.getCardImage());
 
 		if (isSelected)
 			BitBlt(hdc, x - CARD_WIDTH / 2, y - CARD_HEIGHT / 2, CARD_WIDTH, CARD_HEIGHT, MemDCCard, 0, 0, SRCINVERT);

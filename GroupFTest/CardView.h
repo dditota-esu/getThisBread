@@ -2,15 +2,13 @@
 #if !defined CARDVIEW_H
 #define CARDVIEW_H
 #include "CardImage.h"
-
 #include <windows.h>
 
-	class CardView
+class CardView: public CardImage
 {
 public:
-	void cardViewInitial(CardImage*);
-	void cardViewDisplay(float x, float y, bool faceUp, bool isSelected);
-	CardView();
+	CardView(char suit, int rank);
+	void cardViewDisplay(int x, int y, bool faceUp, bool isSelected, char suit, int rank);
 private:
 	int x_LL;
 	int x_UR;
@@ -19,6 +17,6 @@ private:
 	bool isHidden;
 	bool isFaceUp;
 	bool isSelected;
-	CardImage* img;
+	int indexValue //Stores the value of the image in the array
 };
 #endif

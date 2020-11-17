@@ -4,7 +4,7 @@
 
 
 
-HBITMAP* CardImageTest::getCardFrontImage(HINSTANCE hInst, char s, int r)
+int CardImage::getCardFront(HINSTANCE hInst, char s, int r)
 {
 	const wchar_t* frontFileName;
 
@@ -22,6 +22,10 @@ HBITMAP* CardImageTest::getCardFrontImage(HINSTANCE hInst, char s, int r)
 				cardFrontArray[0] = (HBITMAP)LoadImage(hInst, frontFileName,
 					IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 			}
+			else
+			{
+				return 0;
+			}
 		case 1:
 			if (cardFrontArray[1] == NULL)
 			{
@@ -29,12 +33,20 @@ HBITMAP* CardImageTest::getCardFrontImage(HINSTANCE hInst, char s, int r)
 				cardFrontArray[1] = (HBITMAP)LoadImage(hInst, frontFileName,
 					IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 			}
+			else
+			{
+				return 1;
+			}
 		case 2:
 			if (cardFrontArray[2] == NULL)
 			{
 				frontFileName = L"cardImages/1-3.bmp";
 				cardFrontArray[2] = (HBITMAP)LoadImage(hInst, frontFileName,
 					IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+			}
+			else
+			{
+				return 2;
 			}
 		case 3:
 			if (cardFrontArray[3] == NULL)
@@ -230,5 +242,16 @@ HBITMAP* CardImageTest::getCardFrontImage(HINSTANCE hInst, char s, int r)
 		//cout << "ERROR - NO CARD WITH THAT SUIT" << endl;
 	}
 }
+
+HBITMAP* CardImage::getCardBack(HINSTANCE hInst)
+{
+	const wchar_t* frontFileName = L"cardImages/back.bmp";
+	HBITMAP* back = (HBITMAP)LoadImage(hInst, frontFileName,
+		IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE); 
+
+	return back;
+}
+
+
 
 
