@@ -1,0 +1,4 @@
+C:\Users\arlyn\source\repos\CardAreaViewTest\Debug\CardAreaViewTest.exe
+C:\Users\arlyn\source\repos\CardAreaViewTest\Debug\CardAreaViewTest.pdb
+D:\ESU\ESUFALL2020\SoftwareEngineering\CardAreaViewTest\Debug\CardAreaViewTest.exe
+D:\ESU\ESUFALL2020\SoftwareEngineering\CardAreaViewTest\Debug\CardAreaViewTest.pdb
