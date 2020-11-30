@@ -8,6 +8,8 @@ CardView::CardView(ICard* card)
 {
 
 		 rankCard = card->getRank();
+		 faceUp = card->isFaceUp();
+		 selected = card->isSelected();
 
 		 if (card->getSuit() == Spades)
 		 {
@@ -92,34 +94,29 @@ CardView::CardView(char suit, int rank)
 		 back = getImageBack();
 }
 
-void CardView::display(int xP, int yP, bool isFaceUpX, bool isSelectedX, HDC* DeviceContext)
+void CardView::display(int xP, int yP, HDC* DeviceContext)
 {
-		 //int x = x_LL + CARD_WIDTH / 2;
-		 int x = xP + CARD_WIDTH / 2;
-		 int y = yP + CARD_HEIGHT / 2;
-		 //int y = y_UR + CARD_HEIGHT / 2;
+	//int x = x_LL + CARD_WIDTH / 2;
+	int x = xP + CARD_WIDTH / 2;
+	int y = yP + CARD_HEIGHT / 2;
+	//int y = y_UR + CARD_HEIGHT / 2;
 
 
-		 HDC hdc = *DeviceContext;
-		 HDC MemDCCard = CreateCompatibleDC(hdc);
+	HDC hdc = *DeviceContext;
+	HDC MemDCCard = CreateCompatibleDC(hdc);
 
-		 if (isFaceUpX)									//The value here calls the front image from the array
-					SelectObject(MemDCCard, cardFrontArray[frontIndex]);
-		 else
-					SelectObject(MemDCCard, back);
+	if (faceUp)									//The value here calls the front image from the array
+		SelectObject(MemDCCard, cardFrontArray[frontIndex]);
+	else
+		SelectObject(MemDCCard, back);
 
-		 if (isSelectedX)
-					BitBlt(hdc, x - CARD_WIDTH / 2, y - CARD_HEIGHT / 2, CARD_WIDTH, CARD_HEIGHT, MemDCCard, 0, 0, SRCINVERT);
-		 else
-					BitBlt(hdc, x - CARD_WIDTH / 2, y - CARD_HEIGHT / 2, CARD_WIDTH, CARD_HEIGHT, MemDCCard, 0, 0, SRCCOPY);
-
-
-		 DeleteDC(MemDCCard);
+	if (selected)
+		BitBlt(hdc, x - CARD_WIDTH / 2, y - CARD_HEIGHT / 2, CARD_WIDTH, CARD_HEIGHT, MemDCCard, 0, 0, SRCINVERT);
+	else
+		BitBlt(hdc, x - CARD_WIDTH / 2, y - CARD_HEIGHT / 2, CARD_WIDTH, CARD_HEIGHT, MemDCCard, 0, 0, SRCCOPY);
 
 
-}
+	DeleteDC(MemDCCard);
 
-void CardView::click(int in_x, int in_y)
-{
 
 }

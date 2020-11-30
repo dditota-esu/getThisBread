@@ -1,3 +1,4 @@
+#pragma once
 #if !defined(ICARDLIST_H)
 #define ICARDLIST_H
 

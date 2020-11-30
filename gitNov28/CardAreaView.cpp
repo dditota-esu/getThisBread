@@ -1,7 +1,7 @@
 #include"CardAreaView.h"
 
 //Creates the Card Area View by getting the basic information 
-CardAreaView::CardAreaView(int xP, int yP, int xExtent, int yExtent, ICardCollection* cardType, HINSTANCE hInst)
+CardAreaView::CardAreaView(int xP, int yP, int xExtent, int yExtent, ICardCollection* cardType, ICard * cardUno)
 {
 					//Get the position of the subwindow 
 					xStart = xP;
@@ -11,55 +11,31 @@ CardAreaView::CardAreaView(int xP, int yP, int xExtent, int yExtent, ICardCollec
 					arraySize = cardType->getCardListSize();
 
 					//Still have to get a better idea of this but assuming it is the different in spacing
-					xOffset = (xExtent - 72) / arraySize;
-					yOffset = (yExtent - 100) / arraySize;
+					xOffset = (xExtent - CardWidth) / arraySize;
+					yOffset = (yExtent - CardHeight) / arraySize;
 
-					//Inputting the hinstance into a better followed variable TV!
-					tv = hInst;
-
-					cardPosition(arraySize, cardType);
-
-					//Call CardView to set up the cards image
+					///Putting the ICardCollection into an object to use in the program
+					cardObject = cardType;
 }
 
-//This function will determine the position of the cards in the list
-void CardAreaView::cardPosition(int size, ICardCollection* cardType)
+void CardAreaView::cardViewDisplay(HDC* DeviceContext)
 {
-		 if (xStart > yStart)
-		 {
-					//Horizontal
-					for (int i = 0; i < arraySize; i++)
-					{
-							 if (i == 0)
-							 {
-										xPositionValues[0] = xStart;
-										yPositionValues[0] = yStart;
-							 }
-							 xPositionValues[i] = xOffset + 1;
-							 yPositionValues[i] = yOffset;
-					}
+	int x_off = 0;
+	int y_off = 0;
+	for (int i = 0; i < arraySize; i++)
+	{
+		if (i == 0)
+		{
+			CardView* crd = new CardView(cardObject->getFirst());
+			crd->display(0, 0, DeviceContext);
+		}
+		else
+		{
+			CardView* crd = new CardView(cardObject->getNext());
+			crd->display(x_off = x_off + xOffset, y_off = y_off + yOffset, DeviceContext);
 
-		 }
-		 else if (yStart > xStart)
-		 {
-					//Verical
-					for (int i = 0; i < arraySize; i++)
-					{
-							 if (i == 0)
-							 {
-										xPositionValues[0] = xStart;
-										yPositionValues[0] = yStart;
-							 }
-							 yPositionValues[i] = yOffset + 1;
-							 xPositionValues[i] = xOffset;
-					}
-		 }
-		 else
-		 {
-					//Must find a solution in case you have both x and y the same values
-					//ex. 100 x 100
-					cout << "ERROR" << endl;
-		 }
+		}
+	}
 }
 
 //This function will return the card x-value position of the card in the list
@@ -84,11 +60,18 @@ int CardAreaView::getCardY_Position(int cardListIndex)
 }
 
 
-//void CardAreaView::append(ICardCollection* card)
-//{
-//		 for (int i = 0; i < arraySize; i++)
-//		 {
-//					cardImage[i] = new CardView(card->getSuit(), card->getRank());
-//		 }
-//}
+CardIdentity* CardAreaView::click(int in_x, int in_y)
+{
+	CardIdentity* identity = new CardIdentity();
+	identity->cardCollection = cardObject;
+
+
+	//Determine the xoffset anf y offset values from the click input parameters.
+	//then use a for loop to move through card collection list - backwards from front
+	//have if - else statements in the loop to determine if a card lies within the parameters inputted
+	//and if it does return i + 1 which is the card index.
+
+
+	return identity;
+}
 

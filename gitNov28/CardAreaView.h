@@ -9,6 +9,17 @@
 #include"typeinfo"
 #include"Vector"
 
+#define CardWidth 72
+#define CardHeight 100
+
+class CardIdentity
+{
+public:
+	ICardCollection* cardCollection;
+	ICardList* cardList;
+	int cardIndex;
+};
+
 
 //Look into the inheritance issue regarding the CardView
 class CardAreaView
@@ -23,26 +34,20 @@ class CardAreaView
 
 					//Size of the card list
 					int arraySize;
-					HINSTANCE tv;
-
-					//Array to hold the x and y coordinated of the card
-					vector<int> xPositionValues;
-					vector<int> yPositionValues;
-
-					vector<CardView*> cardImage;
 
 					//Use to pass the card rank and suit into CardView
 					int cardRank;
 					char cardSuit;
 
-
+					//ICardCollection object
+					ICardCollection* cardObject;
 
 		 public:
 					//This will construct the card area
-					CardAreaView(int, int, int, int, ICardCollection*, HINSTANCE);
+					CardAreaView(int, int, int, int, ICardCollection*, ICard*);
 
 					//This will display the cards
-					void cardViewDisplay();
+					void cardViewDisplay(HDC*);
 
 					//Giving each card in the array a x and y value
 					void cardPosition(int, ICardCollection*);
@@ -51,7 +56,7 @@ class CardAreaView
 					int getCardX_Potision(int);
 					int getCardY_Position(int);
 
-					void append(ICardCollection*);
+					CardIdentity* click(int x, int y);
 
 };
 #endif
