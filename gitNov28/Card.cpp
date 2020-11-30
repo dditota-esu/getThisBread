@@ -29,3 +29,5 @@ int Card::getCardListSize()
 {
 		 return 1;
 }
+
+//Issue faceUp should be passed into the constructor that way when it is displayed it is easier instead of using the flip function 

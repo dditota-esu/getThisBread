@@ -29,9 +29,6 @@ class CardAreaView
 					int xStart;
 					int yStart;
 
-					int xOffset;
-					int yOffset;
-
 					//Size of the card list
 					int arraySize;
 
@@ -39,8 +36,6 @@ class CardAreaView
 					int cardRank;
 					char cardSuit;
 
-					//ICardCollection object
-					ICardCollection* cardObject;
 
 		 public:
 					//This will construct the card area
@@ -57,6 +52,16 @@ class CardAreaView
 					int getCardY_Position(int);
 
 					CardIdentity* click(int x, int y);
+
+		protected:				//This allows for the subclass to interact with the parent class attributes
+					//ICardCollection object
+					ICardCollection* cardObject;
+					int xExtentCard;
+					int yExtentCard;
+
+					int xOffset;
+					int yOffset;
+
 
 };
 #endif

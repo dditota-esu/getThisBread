@@ -11,11 +11,31 @@ CardAreaView::CardAreaView(int xP, int yP, int xExtent, int yExtent, ICardCollec
 					arraySize = cardType->getCardListSize();
 
 					//Still have to get a better idea of this but assuming it is the different in spacing
-					xOffset = (xExtent - CardWidth) / arraySize;
+				    xOffset = (xExtent - CardWidth) / arraySize;
 					yOffset = (yExtent - CardHeight) / arraySize;
+
+					if (xOffset == yOffset)
+					{
+						xOffset = 0;
+						yOffset = 0;
+					}
+					else if(xOffset == 0)
+					{
+						yOffset = 35;
+					}
+					else if (yOffset == 0)
+					{
+						xOffset = 35;
+					}
+
+					xExtentCard = xExtent;
+					yExtentCard = yExtent;
 
 					///Putting the ICardCollection into an object to use in the program
 					cardObject = cardType;
+
+					//Initializing the identity 
+					CardIdentity* identity = new CardIdentity();
 }
 
 void CardAreaView::cardViewDisplay(HDC* DeviceContext)
@@ -40,24 +60,24 @@ void CardAreaView::cardViewDisplay(HDC* DeviceContext)
 
 //This function will return the card x-value position of the card in the list
 //This requires the card position in the list
-int CardAreaView::getCardX_Potision(int cardListIndex)
-{
-		 //Since our array starts from 0 we need to stubtract the array size by 1
-		 int cardIndex = cardListIndex - 1;
-
-		 return xPositionValues[cardIndex];
-}
-
-
+//int CardAreaView::getCardX_Potision(int cardListIndex)
+//{
+//		 Since our array starts from 0 we need to stubtract the array size by 1
+//		 int cardIndex = cardListIndex - 1;
+//
+//		 return xPositionValues[cardIndex];
+//}
+//
+//
 //This function will return the card y-value position of the card in the list
 //This requires the card position in the list
-int CardAreaView::getCardY_Position(int cardListIndex)
-{
-		 //Since our array starts from 0 we need to stubtract the array size by 1
-		 int cardIndex = cardListIndex - 1;
-
-		 return yPositionValues[cardIndex];
-}
+//int CardAreaView::getCardY_Position(int cardListIndex)
+//{
+//		 Since our array starts from 0 we need to stubtract the array size by 1
+//		 int cardIndex = cardListIndex - 1;
+//
+//		 return yPositionValues[cardIndex];
+//}
 
 
 CardIdentity* CardAreaView::click(int in_x, int in_y)
@@ -66,12 +86,26 @@ CardIdentity* CardAreaView::click(int in_x, int in_y)
 	identity->cardCollection = cardObject;
 
 
+	int xOffOne = xExtentCard;
+	int xOffTwo = xOffset;
+
+	int yOffOne = yExtentCard;
+	int yOffTwo = yOffOne - yOffset;
+
+	for (int i = (arraySize - 1); i >= 0; i--)
+	{
+		if (in_x >= xOffTwo && in_x <= xOffOne)
+		{
+			if (in_y >= yOffTwo && in_y <= yOffOne)
+			{
+				identity->cardIndex = i + 1;
+			}
+		}
+	}
 	//Determine the xoffset anf y offset values from the click input parameters.
 	//then use a for loop to move through card collection list - backwards from front
 	//have if - else statements in the loop to determine if a card lies within the parameters inputted
 	//and if it does return i + 1 which is the card index.
-
-
 	return identity;
 }
 
