@@ -30,10 +30,10 @@
     <ClCompile Include="driverTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Test.cpp">
+    <ClCompile Include="CardAreaView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CardAreaView.cpp">
+    <ClCompile Include="RowOfStacks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -63,6 +63,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Card.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RowOfStacks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

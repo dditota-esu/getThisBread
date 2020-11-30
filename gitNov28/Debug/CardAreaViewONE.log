@@ -1,3 +1,3 @@
-﻿  Test.cpp
-C:\Users\arlyn\Documents\ESU\FALL2020\SoftwareEngineering\sweng_f20\HarrisSandBox\CardAreaViewONE\CardImage.h(5,9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  CardAreaViewONE.vcxproj -> C:\Users\arlyn\Documents\ESU\FALL2020\SoftwareEngineering\sweng_f20\HarrisSandBox\CardAreaViewONE\Debug\CardAreaViewONE.exe
+﻿  CardAreaView.cpp
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\gitNov28\CardImage.h(5,9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  CardAreaViewONE.vcxproj -> C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\gitNov28\Debug\CardAreaViewONE.exe

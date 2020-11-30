@@ -1,1 +1,12 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.Cpp.Platform.targets(67,5): error MSB8020: The build tools for v142 (Platform Toolset = 'v142') cannot be found. To build using the v142 build tools, please install v142 build tools.  Alternatively, you may upgrade to the current Visual Studio tools by selecting the Project menu or right-click the solution, and then selecting "Retarget solution".
+﻿  CardAreaViewTest.cpp
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\CardAreaView_Nov27\CardAreaViewTest\CardAreaViewTest.cpp(210,1): warning C4312: 'type cast': conversion from 'LONG' to 'HINSTANCE' of greater size
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\CardAreaView_Nov27\CardAreaViewTest\CardAreaViewTest.cpp(211,60): warning C4311: 'type cast': pointer truncation from 'CardView *' to 'long'
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\CardAreaView_Nov27\CardAreaViewTest\CardAreaViewTest.cpp(211,60): warning C4302: 'type cast': truncation from 'CardView *' to 'long'
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\CardAreaView_Nov27\CardAreaViewTest\CardAreaViewTest.cpp(225,1): warning C4312: 'type cast': conversion from 'LONG' to 'HINSTANCE' of greater size
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\CardAreaView_Nov27\CardAreaViewTest\CardAreaViewTest.cpp(226,60): warning C4311: 'type cast': pointer truncation from 'CardView *' to 'long'
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\CardAreaView_Nov27\CardAreaViewTest\CardAreaViewTest.cpp(226,60): warning C4302: 'type cast': truncation from 'CardView *' to 'long'
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\CardAreaView_Nov27\CardAreaViewTest\CardAreaViewTest.cpp(409,53): warning C4312: 'type cast': conversion from 'LONG' to 'CardView *' of greater size
+  CardImage.cpp
+  CardView.cpp
+  Generating Code...
+  CardAreaViewTest.vcxproj -> C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\CardAreaView_Nov27\CardAreaViewTest\x64\Debug\CardAreaViewTest.exe

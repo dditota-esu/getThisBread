@@ -1,0 +1,23 @@
+﻿  Card.cpp
+  CardAreaView.cpp
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\gitNov28\CardImage.h(5,9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\gitNov28\CardAreaView.cpp(48,11): error C2065: 'xPositionValues': undeclared identifier
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\gitNov28\CardAreaView.cpp(59,11): error C2065: 'yPositionValues': undeclared identifier
+  CardImage.cpp
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\gitNov28\CardImage.h(5,9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  CardList.cpp
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\gitNov28\CardList.cpp(108,26): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  CardView.cpp
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\gitNov28\CardImage.h(5,9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  driverTest.cpp
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\gitNov28\CardImage.h(5,9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\gitNov28\driverTest.cpp(182,1): error C2065: 'GWL_HINSTANCE': undeclared identifier
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\gitNov28\driverTest.cpp(182,1): error C2660: 'CreateWindowExW': function does not take 11 arguments
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\winuser.h(4436,1): message : see declaration of 'CreateWindowExW'
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\gitNov28\driverTest.cpp(193,34): error C2065: 'DWL_USER': undeclared identifier
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\gitNov28\driverTest.cpp(193,65): warning C4311: 'type cast': pointer truncation from 'CardAreaView *' to 'long'
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\gitNov28\driverTest.cpp(193,65): warning C4302: 'type cast': truncation from 'CardAreaView *' to 'long'
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\gitNov28\driverTest.cpp(311,53): error C2065: 'DWL_USER': undeclared identifier
+  Test.cpp
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\gitNov28\CardImage.h(5,9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Generating Code...

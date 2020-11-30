@@ -5,7 +5,7 @@
 #include"ICardList.h"
 #include"IListOfLists.h"
 #include"Card.h"
-
+#include "RowOfStacks.h"
 #include"typeinfo"
 #include"Vector"
 

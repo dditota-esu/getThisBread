@@ -7,6 +7,7 @@
 #define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
 // Windows Header Files:
 #include <windows.h>
+#include <WinUser.h>
 // C RunTime Header Files
 #include <stdlib.h>
 #include <malloc.h>
@@ -28,6 +29,18 @@
 #define SIDEBAR_LENGTH 150
 
 #define NUM_SUBWINDOWS 2
+
+#define GWL_HINSTANCE (-6)
+/*
+#define DWLP_MSGRESULT  0
+#define DWLP_DLGPROC    DWLP_MSGRESULT + sizeof(LRESULT)
+#define DWLP_USER       DWLP_DLGPROC + sizeof(DLGPROC)
+*/
+
+
+
+
+
 
 //==========================================================================
 int imageIndex;
@@ -193,9 +206,9 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, // handle to the window
 			100,                 // init y size
 			hWnd,                // parent window
 			(HMENU)ID_2DSLIDER,                // window menu
-			(HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE),           // program instance
+			(HINSTANCE)GetWindowLong(hWnd, GWLP_HINSTANCE),           // program instance
 			NULL);               // create params.
-		SetWindowLong(hWnd_subwindow1, DWL_USER, (long)(myView1)); // associate a view object with this window
+		SetWindowLong(hWnd_subwindow1, DWLP_USER, (long)(myView1)); // associate a view object with this window
 
 
 		// create the second subwindow
@@ -208,9 +221,9 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, // handle to the window
 			100,                 // init y size
 			hWnd,                // parent window
 			(HMENU)ID_2DSLIDER,                // window menu
-			(HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE),           // program instance
+			(HINSTANCE)GetWindowLong(hWnd, GWLP_HINSTANCE),           // program instance
 			NULL);               // create params.
-		SetWindowLong(hWnd_subwindow2, DWL_USER, (long)(myView2)); // associate a view object with this window
+		SetWindowLong(hWnd_subwindow2, DWLP_USER, (long)(myView2)); // associate a view object with this window
 
 		//hWnd_subwindow3 = CreateWindow(szSubName,    // name of class that handles subwindow events
 		//	NULL, // window caption
@@ -221,9 +234,9 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, // handle to the window
 		//	100,                 // init y size
 		//	hWnd,                // parent window
 		//	(HMENU)ID_2DSLIDER,                // window menu
-		//	(HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE),           // program instance
+		//	(HINSTANCE)GetWindowLong(hWnd, GWLP_HINSTANCE),           // program instance
 		//	NULL);               // create params.
-		//SetWindowLong(hWnd_subwindow3, DWL_USER, (long)(myView3));
+		//SetWindowLong(hWnd_subwindow3, DWLP_USER, (long)(myView3));
 
 		//hWnd_subwindow4 = CreateWindow(szSubName,    // name of class that handles subwindow events
 		//	NULL, // window caption
@@ -234,9 +247,9 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, // handle to the window
 		//	100,                 // init y size
 		//	hWnd,                // parent window
 		//	(HMENU)ID_2DSLIDER,                // window menu
-		//	(HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE),           // program instance
+		//	(HINSTANCE)GetWindowLong(hWnd, GWLP_HINSTANCE),           // program instance
 		//	NULL);               // create params.
-		//SetWindowLong(hWnd_subwindow4, DWL_USER, (long)(myView4));
+		//SetWindowLong(hWnd_subwindow4, DWLP_USER, (long)(myView4));
 
 		//hWnd_subwindow5 = CreateWindow(szSubName,    // name of class that handles subwindow events
 		//		 NULL, // window caption
@@ -247,9 +260,9 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, // handle to the window
 		//		 100,                 // init y size
 		//		 hWnd,                // parent window
 		//		 (HMENU)ID_2DSLIDER,                // window menu
-		//		 (HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE),           // program instance
+		//		 (HINSTANCE)GetWindowLong(hWnd, GWLP_HINSTANCE),           // program instance
 		//		 NULL);               // create params.
-		//SetWindowLong(hWnd_subwindow5, DWL_USER, (long)(myView5));
+		//SetWindowLong(hWnd_subwindow5, DWLP_USER, (long)(myView5));
 
 		//hWnd_subwindow6 = CreateWindow(szSubName,    // name of class that handles subwindow events
 		//		 NULL, // window caption
@@ -260,9 +273,9 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, // handle to the window
 		//		 100,                 // init y size
 		//		 hWnd,                // parent window
 		//		 (HMENU)ID_2DSLIDER,                // window menu
-		//		 (HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE),           // program instance
+		//		 (HINSTANCE)GetWindowLong(hWnd, GWLP_HINSTANCE),           // program instance
 		//		 NULL);               // create params.
-		//SetWindowLong(hWnd_subwindow6, DWL_USER, (long)(myView6));
+		//SetWindowLong(hWnd_subwindow6, DWLP_USER, (long)(myView6));
 
 		//hWnd_subwindow7 = CreateWindow(szSubName,    // name of class that handles subwindow events
 		//		 NULL, // window caption
@@ -273,9 +286,9 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, // handle to the window
 		//		 100,                 // init y size
 		//		 hWnd,                // parent window
 		//		 (HMENU)ID_2DSLIDER,                // window menu
-		//		 (HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE),           // program instance
+		//		 (HINSTANCE)GetWindowLong(hWnd, GWLP_HINSTANCE),           // program instance
 		//		 NULL);               // create params.
-		//SetWindowLong(hWnd_subwindow7, DWL_USER, (long)(myView7));
+		//SetWindowLong(hWnd_subwindow7, DWLP_USER, (long)(myView7));
 
 		//hWnd_subwindow8 = CreateWindow(szSubName,    // name of class that handles subwindow events
 		//		 NULL, // window caption
@@ -286,9 +299,9 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, // handle to the window
 		//		 100,                 // init y size
 		//		 hWnd,                // parent window
 		//		 (HMENU)ID_2DSLIDER,                // window menu
-		//		 (HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE),           // program instance
+		//		 (HINSTANCE)GetWindowLong(hWnd, GWLP_HINSTANCE),           // program instance
 		//		 NULL);               // create params.
-		//SetWindowLong(hWnd_subwindow8, DWL_USER, (long)(myView8));
+		//SetWindowLong(hWnd_subwindow8, DWLP_USER, (long)(myView8));
 
 		//hWnd_subwindow9 = CreateWindow(szSubName,    // name of class that handles subwindow events
 		//		 NULL, // window caption
@@ -299,9 +312,9 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, // handle to the window
 		//		 100,                 // init y size
 		//		 hWnd,                // parent window
 		//		 (HMENU)ID_2DSLIDER,                // window menu
-		//		 (HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE),           // program instance
+		//		 (HINSTANCE)GetWindowLong(hWnd, GWLP_HINSTANCE),           // program instance
 		//		 NULL);               // create params.
-		//SetWindowLong(hWnd_subwindow9, DWL_USER, (long)(myView9));
+		//SetWindowLong(hWnd_subwindow9, DWLP_USER, (long)(myView9));
 
 		//hWnd_subwindow10 = CreateWindow(szSubName,    // name of class that handles subwindow events
 		//		 NULL, // window caption
@@ -312,9 +325,9 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, // handle to the window
 		//		 100,                 // init y size
 		//		 hWnd,                // parent window
 		//		 (HMENU)ID_2DSLIDER,                // window menu
-		//		 (HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE),           // program instance
+		//		 (HINSTANCE)GetWindowLong(hWnd, GWLP_HINSTANCE),           // program instance
 		//		 NULL);               // create params.
-		//SetWindowLong(hWnd_subwindow10, DWL_USER, (long)(myView10));
+		//SetWindowLong(hWnd_subwindow10, DWLP_USER, (long)(myView10));
 
 		//--------------------------------------------------------------------------------------------------------------------------
 
@@ -393,18 +406,18 @@ LRESULT CALLBACK SubWndProc(HWND hWnd, // handle to the window
 
 		//Display using CardView----------------------------------------------------------------------
 		//The x and y values shows were to position the card in the subwindow 
-		myView = (CardView*)GetWindowLong(hWnd, DWL_USER); 
+		myView = (CardView*)GetWindowLong(hWnd, DWLP_USER); 
 		myView->display(0, 0, false, false, &hdc);						
 
-		/*myView2 = (CardView*)GetWindowLong(hWnd, DWL_USER); 
+		/*myView2 = (CardView*)GetWindowLong(hWnd, DWLP_USER); 
 		myView2->display(0, 0, true, true, &hdc);*/
 
-		//myView3 = (CardView*)GetWindowLong(hWnd, DWL_USER); // get the associated view
-		//myView4 = (CardView*)GetWindowLong(hWnd, DWL_USER);
-		//myView5 = (CardView*)GetWindowLong(hWnd, DWL_USER);
-		//myView6 = (CardView*)GetWindowLong(hWnd, DWL_USER);
-		//myView7 = (CardView*)GetWindowLong(hWnd, DWL_USER);
-		//myView8 = (CardView*)GetWindowLong(hWnd, DWL_USER);
+		//myView3 = (CardView*)GetWindowLong(hWnd, DWLP_USER); // get the associated view
+		//myView4 = (CardView*)GetWindowLong(hWnd, DWLP_USER);
+		//myView5 = (CardView*)GetWindowLong(hWnd, DWLP_USER);
+		//myView6 = (CardView*)GetWindowLong(hWnd, DWLP_USER);
+		//myView7 = (CardView*)GetWindowLong(hWnd, DWLP_USER);
+		//myView8 = (CardView*)GetWindowLong(hWnd, DWLP_USER);
 
 		//------------------------------------------------------------------------------------------------
 		

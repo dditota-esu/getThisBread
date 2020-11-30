@@ -1,0 +1,7 @@
+﻿  CardImage.cpp
+c1xx : fatal error C1083: Cannot open source file: 'CardImage.cpp': No such file or directory
+  CardView.cpp
+c1xx : fatal error C1083: Cannot open source file: 'CardView.cpp': No such file or directory
+  main.cpp
+C:\Users\ESU User\Downloads\school\HELPING_OTHERS\david\SoftEngPersonal\GroupFTest\main.cpp(29,10): fatal error C1083: Cannot open include file: 'CardView.h': No such file or directory
+  Generating Code...

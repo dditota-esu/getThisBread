@@ -1,7 +1,7 @@
 #if !defined CARDIMAGE_H
 #define CARDIMAGE_H
 
-#include"windows.h";
+#include"windows.h"
 
 class CardImage
 {

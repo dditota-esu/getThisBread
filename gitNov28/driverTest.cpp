@@ -65,7 +65,9 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 	CardList* cardList3 = new CardList();			//horizontal
 
-
+	RowOfStacks* rows = new RowOfStacks();
+	rows->add(cardList1);
+	rows->add(cardList3);
 
 	//SOFTWARE ENGINEERING -- Adding cards to the cardlist
 	cardList1->addToBeginning(new Card(0, Spades));
@@ -96,9 +98,10 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 	//Created card area view
 	cardAreaView1 = new CardAreaView(0, 0, areaWidth, areaHeight, cardList1, 0); // vertical stack
-	cardAreaView2 = new CardAreaView(100, 100, 72, 100, cardList2, 0);
+	cardAreaView2 = new CardAreaView(0, 0, 72, 100, cardList2, 0);
 	cardAreaView3 = new CardAreaView(0, 0, 400, 100, cardList3, 0);
 
+	cardAreaView4 = new CardAreaView(0, 0, 500, 500, rows, 0);
 	//cardAreaView2 = new CardAreaView(50, 50, areaWidth, areaHeight, 0, cardList2); // vertical stack
 	//cardAreaView3 = new CardAreaView(50, 50, areaWidth, areaHeight, 0, cardList3); // vertical stack
 	//cardAreaView4 = new CardAreaView(50, 50, areaWidth, areaHeight, 0, cardList4); // vertical stack
@@ -199,6 +202,7 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, // handle to the window
 		GetClientRect(hWnd, &rect);
 //Create subwindows here to display image===============================================================================
 		// create the first subwindow
+		/*
 		hWnd_subwindow1 = CreateWindow(szSubName,   // name of class that handles subwindow events
 			NULL, // window caption
 			WS_CHILD | WS_VISIBLE, // window style
@@ -230,7 +234,7 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, // handle to the window
 		hWnd_subwindow3 = CreateWindow(szSubName,    // name of class that handles subwindow events
 			NULL, // window caption
 			WS_CHILD | WS_VISIBLE, // window style
-			40,       // init x pos
+			300,       // init x pos
 			80,       // init y pos
 			300,       // init x size
 			100,                 // init y size
@@ -239,6 +243,19 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, // handle to the window
 			(HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE),           // program instance
 			NULL);               // create params.
 		SetWindowLong(hWnd_subwindow3, DWL_USER, (long)(cardAreaView3));
+		*/
+		hWnd_subwindow5 = CreateWindow(szSubName,    // name of class that handles subwindow events
+			NULL, // window caption
+			WS_CHILD | WS_VISIBLE, // window style
+			0,       // init x pos
+			0,       // init y pos
+			500,       // init x size
+			500,                 // init y size
+			hWnd,                // parent window
+			(HMENU)ID_2DSLIDER,                // window menu
+			(HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE),           // program instance
+			NULL);               // create params.
+		SetWindowLong(hWnd_subwindow5, DWL_USER, (long)(cardAreaView4));
 
 		//hWnd_subwindow4 = CreateWindow(szSubName,    // name of class that handles subwindow events
 		//	NULL, // window caption
@@ -315,7 +332,7 @@ LRESULT CALLBACK SubWndProc(HWND hWnd, // handle to the window
 	GetClientRect(hWnd, &Rect);
 
 	static int  cxChar, cyChar;
-	CardAreaView* cardAreaView;
+	CardAreaView* cardAreaView=(CardAreaView*)GetWindowLong(hWnd, DWL_USER);
 	switch (msg)
 	{
 	case WM_CREATE: // for initialization that happens when the window is created
@@ -328,7 +345,7 @@ LRESULT CALLBACK SubWndProc(HWND hWnd, // handle to the window
 
 		//Display using CardView----------------------------------------------------------------------
 		//The x and y values shows were to position the card in the subwindow 
-		cardAreaView = (CardAreaView*)GetWindowLong(hWnd, DWL_USER);
+		//cardAreaView = (CardAreaView*)GetWindowLong(hWnd, DWL_USER);
 		cardAreaView->cardViewDisplay(&hdc);
 		//------------------------------------------------------------------------------------------------
 
@@ -337,16 +354,25 @@ LRESULT CALLBACK SubWndProc(HWND hWnd, // handle to the window
 		break;
 
 	case WM_LBUTTONUP: // left mouse button released (up)
-
+	{
 		GetClientRect(MainHwnd, &rect);
-		swprintf_s(MainWindowText, MAX_LOADSTRING, L"Clicked in subwindow; cursor position (%d,%d)", LOWORD(lParam), HIWORD(lParam));
+		CardIdentity* tempIdent = new CardIdentity;
+		tempIdent=cardAreaView->click(LOWORD(lParam), HIWORD(lParam));
+		swprintf_s(MainWindowText, MAX_LOADSTRING, L"Clicked in subwindow; cursor position (%d,%d); index: (%d)", LOWORD(lParam), HIWORD(lParam), tempIdent->cardIndex);
 		InvalidateRect(MainHwnd, &rect, FALSE);
 
 		cardAreaView = (CardAreaView*)GetWindowLong(hWnd, DWL_USER); // get the associated view
-		cardAreaView->click(LOWORD(lParam), HIWORD(lParam)); // give the view the cursor position
+		/*CardIdentity* tempIdent=cardAreaView->click(LOWORD(lParam), HIWORD(lParam)); // give the view the cursor position
+		std::string indexMsg = "Card area view index :" + std::to_string(tempIdent->cardIndex);
+		std::wstring wMsg = std::wstring(indexMsg.begin(), indexMsg.end());
+		const wchar_t* outMsg = wMsg.c_str();
+		swprintf_s(MainWindowText, MAX_LOADSTRING,outMsg);*/
+
+
 
 		GetClientRect(MainHwnd, &rect);
 		InvalidateRect(MainHwnd, &rect, FALSE);
+	}	
 		break;
 
 	case WM_ERASEBKGND:
