@@ -1,0 +1,8 @@
+C:\Users\arlyn\source\repos\CardAreaViewTest\Debug\CardAreaViewTest.exe
+C:\Users\arlyn\source\repos\CardAreaViewTest\Debug\CardAreaViewTest.pdb
+D:\ESU\ESUFALL2020\SoftwareEngineering\CardAreaViewTest\Debug\CardAreaViewTest.exe
+D:\ESU\ESUFALL2020\SoftwareEngineering\CardAreaViewTest\Debug\CardAreaViewTest.pdb
+C:\Users\logan\Desktop\SwEng20\getThisBread\getThisBread\CardAreaView_Nov27\CardAreaViewTest\Debug\CardAreaViewTest.exe
+C:\Users\logan\Desktop\SwEng20\getThisBread\getThisBread\CardAreaView_Nov27\CardAreaViewTest\Debug\CardAreaViewTest.pdb
+E:\College\ESU Fall 2020\CPSC 430\Project\CardAreaView_Nov27\CardAreaViewTest\Debug\CardAreaViewTest.exe
+E:\College\ESU Fall 2020\CPSC 430\Project\CardAreaView_Nov27\CardAreaViewTest\Debug\CardAreaViewTest.pdb
