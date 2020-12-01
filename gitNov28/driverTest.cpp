@@ -44,6 +44,7 @@ CardAreaView* cardAreaView1;
 CardAreaView* cardAreaView2;
 CardAreaView* cardAreaView3;
 CardAreaView* cardAreaView4;
+CardAreaView* cardAreaView5;
 
 std::string* views;
 //SUBWINDOWS ARE CREATED HERE
@@ -63,11 +64,94 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 	CardList* cardList2 = new CardList();			//deck
 
-	CardList* cardList3 = new CardList();			//horizontal
+	//CardList* cardList3 = new CardList();			//horizontal
+
+	// Lists for tableau
+	CardList* cardList3 = new CardList();
+	Card* threeS = new Card(2, Spades);
+	threeS->flip();
+	cardList3->addToBeginning(threeS);
+	
+	CardList* cardList4 = new CardList();
+	Card* kingH = new Card(12, Hearts);
+	kingH->flip();
+	cardList4->addToBeginning(kingH);
+	cardList4->addToBeginning(new Card(4, Diamonds));
+
+	CardList* cardList5 = new CardList();
+	Card* twoC = new Card(1, Clubs);
+	twoC->flip();
+	cardList5->addToBeginning(twoC);
+	cardList5->addToBeginning(new Card(10, Spades));
+	cardList5->addToBeginning(new Card(8, Diamonds));
+
+	CardList* cardList6 = new CardList();
+	Card* tC = new Card(2, Clubs);
+	tC->flip();
+	cardList6->addToBeginning(tC);
+	cardList6->addToBeginning(new Card(10, Spades));
+	cardList6->addToBeginning(new Card(8, Diamonds));
+	cardList6->addToBeginning(new Card(3, Diamonds));
+
+	CardList* cardList7 = new CardList();
+	Card* wC = new Card(3, Clubs);
+	wC->flip();
+	cardList7->addToBeginning(wC);
+	cardList7->addToBeginning(new Card(10, Spades));
+	cardList7->addToBeginning(new Card(9, Diamonds));
+	cardList7->addToBeginning(new Card(6, Diamonds));
+	cardList7->addToBeginning(new Card(11, Spades));
+
+	CardList* cardList8 = new CardList();
+	Card* C = new Card(4, Clubs);
+	C->flip();
+	cardList8->addToBeginning(C);
+	cardList8->addToBeginning(new Card(10, Spades));
+	cardList8->addToBeginning(new Card(8, Hearts));
+	cardList8->addToBeginning(new Card(8, Diamonds));
+	cardList8->addToBeginning(new Card(10, Hearts));
+	cardList8->addToBeginning(new Card(5, Diamonds));
+
+	CardList* cardList9 = new CardList();
+	Card* oC = new Card(5, Clubs);
+	oC->flip();
+	cardList9->addToBeginning(oC);
+	cardList9->addToBeginning(new Card(10, Spades));
+	cardList9->addToBeginning(new Card(8, Diamonds));
+	cardList9->addToBeginning(new Card(8, Diamonds));
+	cardList9->addToBeginning(new Card(8, Diamonds));
+	cardList9->addToBeginning(new Card(8, Diamonds));
+	cardList9->addToBeginning(new Card(8, Diamonds));
+
+	CardList* cardList10 = new CardList();
+	Card* twC = new Card(1, Clubs);
+	Card* threeC = new Card(2, Clubs);
+	Card* fourC = new Card(3, Clubs);
+	Card* fiveC = new Card(4, Clubs);
+	twC->flip();
+	threeC->flip();
+	fourC->flip();
+	fiveC->flip();
+	cardList10->addToBeginning(twC);
+	cardList10->addToBeginning(threeC);
+	cardList10->addToBeginning(fourC);
+	cardList10->addToBeginning(fiveC);
 
 	RowOfStacks* rows = new RowOfStacks();
-	rows->add(cardList1);
 	rows->add(cardList3);
+	rows->add(cardList4);
+	rows->add(cardList5);
+	rows->add(cardList6);
+	rows->add(cardList7);
+	rows->add(cardList8);
+	rows->add(cardList9);
+
+	RowOfStacks* foun = new RowOfStacks();
+	foun->add(cardList3);
+	foun->add(cardList4);
+	foun->add(cardList5);
+	foun->add(cardList6);
+	
 
 	//SOFTWARE ENGINEERING -- Adding cards to the cardlist
 	cardList1->addToBeginning(new Card(0, Spades));
@@ -76,15 +160,10 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 	Card* one = new Card(1, Diamonds);
 	Card* two = new Card(10, Diamonds);
+	one->flip();
+	two->flip();
 	cardList2->addToBeginning(one);
 	cardList2->addToBeginning(two);
-
-	cardList3->addToBeginning(new Card(3, Spades));
-	cardList3->addToBeginning(new Card(4, Spades));
-	cardList3->addToBeginning(new Card(5, Spades));
-	cardList3->addToBeginning(new Card(6, Spades));
-
-
 
 	//SOFTWARE ENGINEERING -- Creating Subwindow sizes
 	int areaWidth = 72;
@@ -93,9 +172,10 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	//Created card area view
 	cardAreaView1 = new CardAreaView(0, 0, areaWidth, areaHeight, cardList1, 0); // vertical stack
 	cardAreaView2 = new CardAreaView(0, 0, 72, 100, cardList2, 0);
-	cardAreaView3 = new CardAreaView(0, 0, 400, 100, cardList3, 0);
+	cardAreaView3 = new CardAreaView(0, 0, 400, 100, foun, 0);
 
-	cardAreaView4 = new CardAreaView(0, 0, 500, 300, rows, 0);
+	cardAreaView4 = new CardAreaView(0, 0, 600, 400, rows, 0);
+	cardAreaView5 = new CardAreaView(0, 0, 600, 100, cardList10, 0);
 	//cardAreaView2 = new CardAreaView(50, 50, areaWidth, areaHeight, 0, cardList2); // vertical stack
 	//cardAreaView3 = new CardAreaView(50, 50, areaWidth, areaHeight, 0, cardList3); // vertical stack
 	//cardAreaView4 = new CardAreaView(50, 50, areaWidth, areaHeight, 0, cardList4); // vertical stack
@@ -208,7 +288,7 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, // handle to the window
 			(HMENU)ID_2DSLIDER,                // window menu
 			(HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE),           // program instance
 			NULL);               // create params.
-		SetWindowLong(hWnd_subwindow1, DWL_USER, (long)(cardAreaView2)); // associate a view object with this window
+		SetWindowLong(hWnd_subwindow1, DWL_USER, (long)(cardAreaView1)); // associate a view object with this window
 
 
 		//// create the second subwindow
@@ -223,12 +303,12 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, // handle to the window
 			(HMENU)ID_2DSLIDER,                // window menu
 			(HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE),           // program instance
 			NULL);               // create params.
-		SetWindowLong(hWnd_subwindow2, DWL_USER, (long)(cardAreaView1)); // associate a view object with this window
+		SetWindowLong(hWnd_subwindow2, DWL_USER, (long)(cardAreaView2)); // associate a view object with this window
 
 		hWnd_subwindow3 = CreateWindow(szSubName,    // name of class that handles subwindow events
 			NULL, // window caption
 			WS_CHILD | WS_VISIBLE, // window style
-			672,       // init x pos
+			266,       // init x pos
 			50,       // init y pos
 			318,       // init x size
 			100,                 // init y size
@@ -238,31 +318,31 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, // handle to the window
 			NULL);               // create params.
 		SetWindowLong(hWnd_subwindow3, DWL_USER, (long)(cardAreaView3));
 		
-		hWnd_subwindow5 = CreateWindow(szSubName,    // name of class that handles subwindow events
+		hWnd_subwindow4 = CreateWindow(szSubName,    // name of class that handles subwindow events
 			NULL, // window caption
 			WS_CHILD | WS_VISIBLE, // window style
 			20,       // init x pos
 			200,       // init y pos
-			500,       // init x size
+			600,       // init x size
 			400,                 // init y size
 			hWnd,                // parent window
 			(HMENU)ID_2DSLIDER,                // window menu
 			(HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE),           // program instance
 			NULL);               // create params.
-		SetWindowLong(hWnd_subwindow5, DWL_USER, (long)(cardAreaView4));
+		SetWindowLong(hWnd_subwindow4, DWL_USER, (long)(cardAreaView4));
 
-		//hWnd_subwindow4 = CreateWindow(szSubName,    // name of class that handles subwindow events
-		//	NULL, // window caption
-		//	WS_CHILD | WS_VISIBLE, // window style
-		//	450,       // init x pos
-		//	50,       // init y pos
-		//	72,       // init x size
-		//	500,                 // init y size
-		//	hWnd,                // parent window
-		//	(HMENU)ID_2DSLIDER,                // window menu
-		//	(HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE),           // program instance
-		//	NULL);               // create params.
-		//SetWindowLong(hWnd_subwindow4, DWL_USER, (long)(cardAreaView4));
+		hWnd_subwindow5 = CreateWindow(szSubName,    // name of class that handles subwindow events
+			NULL, // window caption
+			WS_CHILD | WS_VISIBLE, // window style
+			20,       // init x pos
+			575,       // init y pos
+			600,       // init x size
+			100,                 // init y size
+			hWnd,                // parent window
+			(HMENU)ID_2DSLIDER,                // window menu
+			(HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE),           // program instance
+			NULL);               // create params.
+		SetWindowLong(hWnd_subwindow5, DWL_USER, (long)(cardAreaView5));
 //============================================================================================================
 
 	case WM_PAINT:		// paint event-- window should display itself
