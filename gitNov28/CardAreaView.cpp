@@ -27,6 +27,11 @@ CardAreaView::CardAreaView(int xP, int yP, int xExtent, int yExtent, ICardCollec
 					{
 						xOffset = 35;
 					}
+					else
+					{
+						xOffset = 82;
+						yOffset = 35;
+					}
 
 					xExtentCard = xExtent;
 					yExtentCard = yExtent;
@@ -72,27 +77,6 @@ void CardAreaView::cardViewDisplay(HDC* DeviceContext)
 		}
 	}
 }
-
-//This function will return the card x-value position of the card in the list
-//This requires the card position in the list
-//int CardAreaView::getCardX_Potision(int cardListIndex)
-//{
-//		 Since our array starts from 0 we need to stubtract the array size by 1
-//		 int cardIndex = cardListIndex - 1;
-//
-//		 return xPositionValues[cardIndex];
-//}
-//
-//
-//This function will return the card y-value position of the card in the list
-//This requires the card position in the list
-//int CardAreaView::getCardY_Position(int cardListIndex)
-//{
-//		 Since our array starts from 0 we need to stubtract the array size by 1
-//		 int cardIndex = cardListIndex - 1;
-//
-//		 return yPositionValues[cardIndex];
-//}
 
 
 CardIdentity* CardAreaView::click(int in_x, int in_y)

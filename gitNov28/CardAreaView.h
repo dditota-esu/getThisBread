@@ -33,8 +33,8 @@ class CardAreaView
 					int arraySize;
 
 					//Use to pass the card rank and suit into CardView
-					int cardRank;
-					char cardSuit;
+					//int cardRank;
+					//char cardSuit;
 
 
 		 public:
@@ -45,11 +45,11 @@ class CardAreaView
 					void cardViewDisplay(HDC*);
 
 					//Giving each card in the array a x and y value
-					void cardPosition(int, ICardCollection*);
+					//void cardPosition(int, ICardCollection*);
 
 					//Returning the card x and y positions
-					int getCardX_Potision(int);
-					int getCardY_Position(int);
+					//int getCardX_Potision(int);
+					//int getCardY_Position(int);
 
 					CardIdentity* click(int x, int y);
 

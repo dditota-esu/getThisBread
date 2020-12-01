@@ -9,7 +9,7 @@ Card::Card(int rank, Suit suit) {
 		 selected = false;
 
 		 //Harris change to see the affect on the game
-		 faceUp = true;
+		 faceUp = false;
 }
 
 void Card::select() { selected = !selected; }
